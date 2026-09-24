@@ -98,7 +98,7 @@ function Checkout({
 
   const loadProducts = async () => {
     const response = await fetch(
-      "http://localhost:5000/api/products"
+      "https://shopmate-ecommerce-a8o8.onrender.com/api/products"
     );
 
     let data = {};
@@ -205,7 +205,7 @@ function Checkout({
     const orderItems = await resolveCartItems();
 
     const response = await fetch(
-      "http://localhost:5000/api/orders",
+      "https://shopmate-ecommerce-a8o8.onrender.com/api/orders",
       {
         method: "POST",
         headers: {

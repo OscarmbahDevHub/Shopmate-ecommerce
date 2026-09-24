@@ -33,7 +33,7 @@ function AdminUsers({
         }
 
         const response = await fetch(
-          "http://localhost:5000/api/auth/admin/users",
+          "https://shopmate-ecommerce-a8o8.onrender.com/api/auth/admin/users",
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/products";
+const API_URL = "https://shopmate-ecommerce-a8o8.onrender.com/api/products";
 
 // Get all products
 export const getProducts = async () => {

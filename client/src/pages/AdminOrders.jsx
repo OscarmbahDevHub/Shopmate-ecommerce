@@ -45,7 +45,7 @@ function AdminOrders({
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/orders/admin/all",
+        "https://shopmate-ecommerce-a8o8.onrender.com/api/orders/admin/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ function AdminOrders({
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/orders/admin/${orderId}/status`,
+        `https://shopmate-ecommerce-a8o8.onrender.com/api/orders/admin/${orderId}/status`,
         {
           method: "PUT",
           headers: {

@@ -74,7 +74,7 @@ function AdminProducts({
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/products/",
+        "https://shopmate-ecommerce-a8o8.onrender.com/api/products/",
       );
 
       const data = await response.json();
@@ -288,9 +288,8 @@ function AdminProducts({
       };
 
       const url = editingProduct
-        ? `http://localhost:5000/api/products/${editingProduct._id}`
-        : "http://localhost:5000/api/products/";
-
+  ? `https://shopmate-ecommerce-a8o8.onrender.com/api/products/${editingProduct._id}`
+  : "https://shopmate-ecommerce-a8o8.onrender.com/api/products/";
       const method = editingProduct
         ? "PUT"
         : "POST";
@@ -374,7 +373,7 @@ function AdminProducts({
         localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/products/${productId}`,
+        `https://shopmate-ecommerce-a8o8.onrender.com/api/products/${productId}`,
         {
           method: "DELETE",
           headers: {
