@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "react-router-dom": "^7.18.1",
+    "react-toastify": "^11.1.0",
+    "swiper": "^14.0.6"
+  }
+}
