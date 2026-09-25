@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../Layouts/MainLayout";
 import ProductCard from "../components/ProductCard";
 import products from "../data/products";
 import { getProducts } from "../services/productService";

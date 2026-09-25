@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../Layouts/MainLayout";
 
 function OrderSuccess({
   cartCount,

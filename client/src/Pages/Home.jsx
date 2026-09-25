@@ -1,4 +1,4 @@
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../Layouts/MainLayout";
 import HeroSlider from "../components/HeroSlider";
 import ProductCard from "../components/ProductCard";
 import Categories from "../components/Categories";
