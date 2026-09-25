@@ -15,7 +15,7 @@ import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import Deals from "./pages/Deals";
 import Categories from "./pages/Categories";
-import About from "./Pages/About";
+import About from "./pages/About";
 import Contact from "./Pages/Contact";
 import Orders from "./pages/Orders";
 import AdminOrders from "./pages/AdminOrders";
