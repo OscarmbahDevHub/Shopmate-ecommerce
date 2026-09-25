@@ -26,9 +26,10 @@ app.use(helmet());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
-      "https://oscarmbahdevhub.github.io",
-    ],
+  "http://localhost:5173",
+  "https://oscarmbahdevhub.github.io",
+  "https://shopmate-ecommerce.vercel.app",
+],
     credentials: true,
   })
 );
