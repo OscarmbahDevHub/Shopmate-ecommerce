@@ -4,59 +4,44 @@ import { Routes, Route } from "react-router-dom";
 
 import ErrorBoundary from "./components/ErrorBoundary";
 
-import Home from "./pages/Home";
-import Cart from "./pages/Cart";
-import Shop from "./pages/Shop";
-import Wishlist from "./pages/Wishlist";
-import ProductDetails from "./pages/ProductDetails";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Checkout from "./pages/Checkout";
-import OrderSuccess from "./pages/OrderSuccess";
-import Deals from "./pages/Deals";
-import Categories from "./pages/Categories";
-import About from "./pages/About";
+import Home from "./Pages/Home";
+import Cart from "./Pages/Cart";
+import Shop from "./Pages/Shop";
+import Wishlist from "./Pages/Wishlist";
+import ProductDetails from "./Pages/ProductDetails";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import Checkout from "./Pages/Checkout";
+import OrderSuccess from "./Pages/OrderSuccess";
+import Deals from "./Pages/Deals";
+import Categories from "./Pages/Categories";
+import About from "./Pages/About";
 import Contact from "./Pages/Contact";
-import Orders from "./pages/Orders";
-import AdminOrders from "./pages/AdminOrders";
-import OrderDetails from "./pages/OrderDetails";
-import AdminProducts from "./pages/AdminProducts";
-import AdminUsers from "./pages/AdminUsers";
+import Orders from "./Pages/Orders";
+import AdminOrders from "./Pages/AdminOrders";
+import OrderDetails from "./Pages/OrderDetails";
+import AdminProducts from "./Pages/AdminProducts";
+import AdminUsers from "./Pages/AdminUsers";
 
 function App() {
-  // ===============================
-  // CART
-  // ===============================
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
-  // ===============================
-  // WISHLIST
-  // ===============================
   const [wishlist, setWishlist] = useState(() => {
     const savedWishlist = localStorage.getItem("wishlist");
     return savedWishlist ? JSON.parse(savedWishlist) : [];
   });
 
-  // ===============================
-  // SEARCH / CATEGORY
-  // ===============================
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // ===============================
-  // USER
-  // ===============================
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  // ===============================
-  // ADD TO CART
-  // ===============================
   const addToCart = (product) => {
     const productId = product._id || product.id;
 
@@ -76,9 +61,7 @@ function App() {
         )
       );
 
-      toast.success(
-        `🛒 ${product.name} quantity updated!`
-      );
+      toast.success(`${product.name} quantity updated!`);
     } else {
       setCart([
         ...cart,
@@ -89,27 +72,18 @@ function App() {
         },
       ]);
 
-      toast.success(
-        `🛒 ${product.name} added to cart!`
-      );
+      toast.success(`${product.name} added to cart!`);
     }
   };
 
-  // ===============================
-  // REMOVE FROM CART
-  // ===============================
   const removeFromCart = (productId) => {
     setCart(
       cart.filter(
-        (item) =>
-          (item._id || item.id) !== productId
+        (item) => (item._id || item.id) !== productId
       )
     );
   };
 
-  // ===============================
-  // INCREASE QUANTITY
-  // ===============================
   const increaseQuantity = (productId) => {
     setCart(
       cart.map((item) =>
@@ -123,9 +97,6 @@ function App() {
     );
   };
 
-  // ===============================
-  // DECREASE QUANTITY
-  // ===============================
   const decreaseQuantity = (productId) => {
     setCart(
       cart
@@ -141,77 +112,44 @@ function App() {
     );
   };
 
-  // ===============================
-  // WISHLIST
-  // ===============================
   const toggleWishlist = (product) => {
     const productId = product._id || product.id;
 
     const exists = wishlist.find(
-      (item) =>
-        (item._id || item.id) === productId
+      (item) => (item._id || item.id) === productId
     );
 
     if (exists) {
       setWishlist(
         wishlist.filter(
-          (item) =>
-            (item._id || item.id) !== productId
+          (item) => (item._id || item.id) !== productId
         )
       );
 
-      toast.info(
-        `💔 ${product.name} removed from wishlist`
-      );
+      toast.info(`${product.name} removed from wishlist`);
     } else {
-      setWishlist([
-        ...wishlist,
-        product,
-      ]);
+      setWishlist([...wishlist, product]);
 
-      toast.success(
-        `❤️ ${product.name} added to wishlist`
-      );
+      toast.success(`${product.name} added to wishlist`);
     }
   };
 
-  // ===============================
-  // CART COUNT
-  // ===============================
   const cartCount = cart.reduce(
     (total, item) => total + item.quantity,
     0
   );
 
-  // ===============================
-  // SAVE CART
-  // ===============================
   useEffect(() => {
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(cart)
-    );
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // ===============================
-  // SAVE WISHLIST
-  // ===============================
   useEffect(() => {
-    localStorage.setItem(
-      "wishlist",
-      JSON.stringify(wishlist)
-    );
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
-  // ===============================
-  // SAVE USER
-  // ===============================
   useEffect(() => {
     if (user) {
-      localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-      );
+      localStorage.setItem("user", JSON.stringify(user));
     } else {
       localStorage.removeItem("user");
     }
@@ -220,8 +158,6 @@ function App() {
   return (
     <ErrorBoundary>
       <Routes>
-
-        {/* HOME */}
         <Route
           path="/"
           element={
@@ -240,7 +176,6 @@ function App() {
           }
         />
 
-        {/* SHOP */}
         <Route
           path="/products"
           element={
@@ -257,7 +192,6 @@ function App() {
           }
         />
 
-        {/* CART */}
         <Route
           path="/cart"
           element={
@@ -275,7 +209,6 @@ function App() {
           }
         />
 
-        {/* WISHLIST */}
         <Route
           path="/wishlist"
           element={
@@ -292,7 +225,6 @@ function App() {
           }
         />
 
-        {/* PRODUCT DETAILS */}
         <Route
           path="/product/:id"
           element={
@@ -309,7 +241,6 @@ function App() {
           }
         />
 
-        {/* LOGIN */}
         <Route
           path="/login"
           element={
@@ -323,7 +254,6 @@ function App() {
           }
         />
 
-        {/* REGISTER */}
         <Route
           path="/register"
           element={
@@ -337,7 +267,6 @@ function App() {
           }
         />
 
-        {/* CHECKOUT */}
         <Route
           path="/checkout"
           element={
@@ -352,7 +281,6 @@ function App() {
           }
         />
 
-        {/* ORDER SUCCESS */}
         <Route
           path="/order-success"
           element={
@@ -366,7 +294,6 @@ function App() {
           }
         />
 
-        {/* DEALS */}
         <Route
           path="/deals"
           element={
@@ -383,7 +310,6 @@ function App() {
           }
         />
 
-        {/* CATEGORIES */}
         <Route
           path="/categories"
           element={
@@ -400,7 +326,6 @@ function App() {
           }
         />
 
-        {/* ABOUT */}
         <Route
           path="/about"
           element={
@@ -414,7 +339,6 @@ function App() {
           }
         />
 
-        {/* CONTACT */}
         <Route
           path="/contact"
           element={
@@ -428,7 +352,6 @@ function App() {
           }
         />
 
-        {/* ORDERS */}
         <Route
           path="/orders"
           element={
@@ -442,7 +365,6 @@ function App() {
           }
         />
 
-        {/* ADMIN ORDERS */}
         <Route
           path="/admin/orders"
           element={
@@ -456,7 +378,6 @@ function App() {
           }
         />
 
-        {/* ADMIN PRODUCTS */}
         <Route
           path="/admin/products"
           element={
@@ -471,18 +392,18 @@ function App() {
         />
 
         <Route
-           path="/admin/users"
-           element={<AdminUsers 
-           cartCount={cartCount}
+          path="/admin/users"
+          element={
+            <AdminUsers
+              cartCount={cartCount}
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
               user={user}
               setUser={setUser}
-          />
-        }
+            />
+          }
         />
 
-        {/* ORDER DETAILS */}
         <Route
           path="/orders/:id"
           element={
@@ -495,7 +416,6 @@ function App() {
             />
           }
         />
-
       </Routes>
 
       <ToastContainer
